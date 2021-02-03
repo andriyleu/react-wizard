@@ -8,9 +8,7 @@ const BorderedFooter = styled.footer`
 
 class Footer extends Component {
   render() {
-    return (<BorderedFooter>
-        {this.props.children}
-        </BorderedFooter>);
+    return <BorderedFooter>{this.props.children}</BorderedFooter>;
   }
 }
 

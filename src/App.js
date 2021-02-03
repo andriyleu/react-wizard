@@ -6,6 +6,7 @@ import Step2 from "./views/Form";
 import Step3 from "./views/Feedback";
 import Footer from "./components/footer";
 import OkButton from "./components/okbutton";
+import Header from "./components/header";
 
 import "./App.scss";
 
@@ -14,6 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <main className="App-content">
+          <Header></Header>
           <Step1 />
           <Footer>
             <OkButton title="Siguiente"></OkButton>

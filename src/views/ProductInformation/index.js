@@ -7,6 +7,8 @@ import ImageWithDescription from "../../components/imagewithdescription";
 
 const ImagesSection = styled.section`
   display: flex;
+  flex-direction: center;
+  justify-content: space-around;
 `;
 
 class Step1 extends Component {
