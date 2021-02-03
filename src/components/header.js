@@ -28,13 +28,12 @@ const CircleNavElement = styled.li`
   text-align: center;
   line-height: 2em;
   border-radius: 3em;
-  background: #002b45;
   margin: 0 1em;
   color: white;
   position: relative;
 
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
 
   &:before {
@@ -44,12 +43,23 @@ const CircleNavElement = styled.li`
     left: -2em;
     width: 2em;
     height: 0.2em;
-    background: ${(props) => (props.isPending ? "#788f9c" : "red")};
+    background: ${(props) => (props.isPending ? "#788f9c" : "#FF0049")};
   }
 
   &:first-child:before {
     display: none;
   }
+
+  ${({ isPending, isActive }) => {
+    switch (true) {
+      case isActive:
+        return `background-color : #002B45`;
+      case isPending:
+        return `background-color : #788f9c`;
+      default:
+        return `background-color : #FF0049`;
+    }
+  }}
 `;
 
 class Header extends Component {
