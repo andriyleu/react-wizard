@@ -11,29 +11,39 @@ const AppHeader = styled.header`
 
 const AppNav = styled.nav`
   width: 20rem;
+  text-align: center;
 `;
 
-const NavList = styled.ul`  
+const NavList = styled.ul`
   position: relative;
-  display: flex;
-  padding; 0;
-  justify-content: space-between;
-  border-top: 5px solid #002B45;
   padding: 0;
 `;
 
 const CircleNavElement = styled.li`
-  list-style-type: none;
-  background-color: #002b45;
-  font-weight: bold;
-  border: 2px solid black;
-  margin-top: -27.5px;
-  width: 45px;
-  height: 45px;
-  line-height: 45px;
+  width: 2em;
+  height: 2em;
   text-align: center;
-  border-radius: 50%;
-  color: #ffffff;
+  line-height: 2em;
+  border-radius: 1em;
+  background: #002B45;
+  margin: 0 1em;
+  display: inline-block;
+  color: white;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0.9em;
+    left: -2em;
+    width: 2em;
+    height: 0.2em;
+    background: #788F9C;
+  }
+
+  &:first-child:before {
+    display: none;
+  }
 `;
 
 class Header extends Component {
