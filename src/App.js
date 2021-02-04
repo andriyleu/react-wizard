@@ -14,6 +14,8 @@ import "./App.scss";
 
 const PaddedSection = styled.section`
   padding: 4rem 8rem;
+  box-shadow: 0px -1px #888888;
+}
 `;
 
 class App extends Component {
@@ -21,7 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <main className="App-content">
-          <Header currentStep={2} numberOfSteps={3}></Header>
+          <Header currentStep={3} numberOfSteps={3}></Header>
           <PaddedSection>
             <Step1 />
           </PaddedSection>

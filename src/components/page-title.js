@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const Title = styled.h2`
+const Title = styled.h1`
   color: #002b45;
   position: relative;
 

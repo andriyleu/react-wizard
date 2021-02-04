@@ -28,13 +28,13 @@ class Step1 extends Component {
         </ImagesSection>
         <div className="page_content">
           <div>
-            <h4>Cómo funciona</h4>
+            <h2>Cómo funciona</h2>
             En primer lugar, debes crear una contraseña diferente para sus
             pertenencias electrónicos. No podrás recuperar tu contraseña, así
             que recuérdela bien.
           </div>
           <div>
-            <h4>Qué datos puedes guardar</h4>
+            <h2>Qué datos puedes guardar</h2>
             Por ejemplo, el número de tu tarjeta, el PIN y el PLIK de tu
             teléfono móvil, el número de serie de alguno de tus dispositivos o
             cualquier información que necesites tener en lugar seguro.

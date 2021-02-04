@@ -58,7 +58,7 @@ const CircleNavElement = styled.li`
     background-color: #FFFFFF;
     content: '';
     position: absolute;
-    top: 5rem;
+    top: 4.9rem;
     transform: rotate(45deg);
     box-shadow: -1px -1px #888888;
     display: ${(props) => (props.isActive ? "block" : "none")};;
