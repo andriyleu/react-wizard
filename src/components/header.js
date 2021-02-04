@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Tick } from "@styled-icons/typicons/Tick";
 
 const AppHeader = styled.header`
   background-color: #b7c4c9;
@@ -23,8 +24,8 @@ const NavList = styled.ul`
 `;
 
 const CircleNavElement = styled.li`
-  width: ${(props) => (props.isActive ? "3em" : "2em")};
-  height: ${(props) => (props.isActive ? "3em" : "2em")};
+  width: ${(props) => (props.isActive ? "2.5em" : "2em")};
+  height: ${(props) => (props.isActive ? "2.5em" : "2em")};
   text-align: center;
   line-height: 2em;
   border-radius: 3em;
@@ -50,6 +51,19 @@ const CircleNavElement = styled.li`
     display: none;
   }
 
+  &:after {
+    width: 20px;
+    height: 20px;
+    color: red;
+    background-color: #FFFFFF;
+    content: '';
+    position: absolute;
+    top: 5rem;
+    transform: rotate(45deg);
+    box-shadow: -1px -1px #888888;
+    display: ${(props) => (props.isActive ? "block" : "none")};;
+  }
+
   ${({ isPending, isActive }) => {
     switch (true) {
       case isActive:
@@ -73,14 +87,12 @@ class Header extends Component {
       { length: this.props.numberOfSteps },
       (_, i) => i + 1
     ).map((i) => {
-      console.log("currentstep", this.props.currentStep);
-      console.log("i", i);
       return (
         <CircleNavElement
           isActive={this.props.currentStep === i}
           isPending={i > this.props.currentStep}
         >
-          {i}
+          {this.props.currentStep > i ? <Tick></Tick> : i}
         </CircleNavElement>
       );
     });

@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <main className="App-content">
-          <Header currentStep={3} numberOfSteps={3}></Header>
+          <Header currentStep={2} numberOfSteps={3}></Header>
           <Step1 />
           <Footer>
             <OkButton title="Siguiente"></OkButton>
