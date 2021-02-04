@@ -6,7 +6,7 @@ const ImageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 16rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2.25rem;
 `;
 
 const ImageThumbnail = styled.img`

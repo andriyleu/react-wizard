@@ -13,6 +13,10 @@ const ImagesSection = styled.section`
   flex-wrap: wrap;
 `;
 
+const SubTitle = styled.h2`
+  margin: 1rem 0;
+`;
+
 class Step1 extends Component {
   render() {
     return (
@@ -30,16 +34,16 @@ class Step1 extends Component {
         </ImagesSection>
         <div className="page_content">
           <div>
-            <h2>Cómo funciona</h2>
-            En primer lugar, debes crear una contraseña diferente para sus
+            <SubTitle>Cómo funciona</SubTitle>
+            <p>En primer lugar, debes crear una contraseña diferente para sus
             pertenencias electrónicos. No podrás recuperar tu contraseña, así
-            que recuérdela bien.
+            que recuérdela bien.</p>
           </div>
           <div>
-            <h2>Qué datos puedes guardar</h2>
-            Por ejemplo, el número de tu tarjeta, el PIN y el PLIK de tu
+            <SubTitle>Qué datos puedes guardar</SubTitle>
+            <p>Por ejemplo, el número de tu tarjeta, el PIN y el PLIK de tu
             teléfono móvil, el número de serie de alguno de tus dispositivos o
-            cualquier información que necesites tener en lugar seguro.
+            cualquier información que necesites tener en lugar seguro.</p>
           </div>
         </div>
       </>

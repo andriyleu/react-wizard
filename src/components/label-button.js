@@ -8,8 +8,13 @@ const TextButton = styled.button`
   border: none;
   background-color: white;
   outline: 0;
-  width: 8rem;
-  height: 4rem;
+  padding: 1rem 4vw;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 class LabelButton extends Component {

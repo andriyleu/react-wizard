@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Title = styled.h1`
   color: #002b45;
   position: relative;
+  margin: 0;
 
   &:after {
     content: "";

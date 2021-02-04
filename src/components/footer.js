@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const BorderedFooter = styled.footer`
-  border-top: 5px solid #eaeaea;
+  border-top: 0.1rem solid #eaeaea;
   padding: 2rem 5vw;
   display: flex;
   justify-content: space-between;

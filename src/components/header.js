@@ -4,14 +4,13 @@ import { Tick } from "@styled-icons/typicons/Tick";
 
 const AppHeader = styled.header`
   background-color: #b7c4c9;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
   justify-content: center;
 `;
 
 const AppNav = styled.nav`
-  width: 20rem;
   text-align: center;
 `;
 
@@ -24,8 +23,8 @@ const NavList = styled.ul`
 `;
 
 const CircleNavElement = styled.li`
-  width: ${(props) => (props.isActive ? "2.5em" : "2em")};
-  height: ${(props) => (props.isActive ? "2.5em" : "2em")};
+  width: ${(props) => (props.isActive ? "2.5rem" : "2rem")};
+  height: ${(props) => (props.isActive ? "2.5rem" : "2rem")};
   text-align: center;
   line-height: 2em;
   border-radius: 3em;
@@ -52,16 +51,15 @@ const CircleNavElement = styled.li`
   }
 
   &:after {
-    width: 20px;
-    height: 20px;
-    color: red;
-    background-color: #FFFFFF;
-    content: '';
+    width: 1rem;
+    height: 1rem;
+    background-color: #ffffff;
+    content: "";
     position: absolute;
-    top: 4.9rem;
+    top: 4rem;
     transform: rotate(45deg);
-    box-shadow: -1px -1px #888888;
-    display: ${(props) => (props.isActive ? "block" : "none")};;
+    box-shadow: -1px -1px rgb(51 51 51 / 20%);
+    display: ${(props) => (props.isActive ? "block" : "none")};
   }
 
   ${({ isPending, isActive }) => {

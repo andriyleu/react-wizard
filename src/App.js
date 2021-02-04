@@ -13,9 +13,11 @@ import styled from "styled-components";
 import "./App.scss";
 
 const PaddedSection = styled.section`
-  padding: 4rem 5vw;
-  box-shadow: 0px -1px #888888;
-}
+  padding-bottom: 4rem;
+  padding-left: 8vw;
+  padding-top: 2rem;
+  padding-right: 8vw;
+  box-shadow: 0px -0.2rem 2rem rgb(51 51 51 / 20%);
 `;
 
 class App extends Component {
@@ -23,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <main className="App-content">
-          <Header currentStep={3} numberOfSteps={3}></Header>
+          <Header currentStep={2} numberOfSteps={3}></Header>
           <PaddedSection>
             <Step1 />
           </PaddedSection>
