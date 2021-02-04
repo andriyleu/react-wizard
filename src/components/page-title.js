@@ -12,7 +12,7 @@ const Title = styled.h1`
     height: 5px;
     width: 3rem;
     left: 0;
-    top: 2.5rem;
+    top: 120%;
   }
 `;
 

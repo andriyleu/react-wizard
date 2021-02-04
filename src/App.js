@@ -13,7 +13,7 @@ import styled from "styled-components";
 import "./App.scss";
 
 const PaddedSection = styled.section`
-  padding: 4rem 8rem;
+  padding: 4rem 5vw;
   box-shadow: 0px -1px #888888;
 }
 `;

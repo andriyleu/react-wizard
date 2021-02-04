@@ -9,6 +9,8 @@ const ImagesSection = styled.section`
   display: flex;
   flex-direction: center;
   justify-content: space-around;
+  margin-top: 4rem;
+  flex-wrap: wrap;
 `;
 
 class Step1 extends Component {

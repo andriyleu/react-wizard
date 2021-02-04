@@ -5,12 +5,12 @@ const ImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25vw;
+  width: 16rem;
+  padding-bottom: 4rem;
 `;
 
 const ImageThumbnail = styled.img`
-  width: 16rem;
-  height: 16rem;
+  width: 100%;
 `;
 
 const ImageDescription = styled.p`
