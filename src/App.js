@@ -7,8 +7,14 @@ import Step3 from "./views/Feedback";
 import Footer from "./components/footer";
 import OkButton from "./components/okbutton";
 import Header from "./components/header";
+import LabelButton from "./components/label-button";
+import styled from "styled-components";
 
 import "./App.scss";
+
+const PaddedSection = styled.section`
+  padding: 4rem 8rem;
+`;
 
 class App extends Component {
   render() {
@@ -16,8 +22,11 @@ class App extends Component {
       <div className="App">
         <main className="App-content">
           <Header currentStep={2} numberOfSteps={3}></Header>
-          <Step1 />
+          <PaddedSection>
+            <Step1 />
+          </PaddedSection>
           <Footer>
+            <LabelButton title="Cancelar"></LabelButton>
             <OkButton title="Siguiente"></OkButton>
           </Footer>
         </main>
