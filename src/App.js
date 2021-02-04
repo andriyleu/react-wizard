@@ -27,7 +27,7 @@ class App extends Component {
         <main className="App-content">
           <Header currentStep={2} numberOfSteps={3}></Header>
           <PaddedSection>
-            <Step1 />
+            <Step2 />
           </PaddedSection>
           <Footer>
             <LabelButton title="Cancelar"></LabelButton>
