@@ -3,7 +3,17 @@ import styled from "styled-components";
 
 const Title = styled.h2`
   color: #002b45;
-  border-bottom: 5px solid #40C3DF;
+  position: relative;
+
+  &:after {
+    content: "";
+    background: #40c3df;
+    position: absolute;
+    height: 5px;
+    width: 3rem;
+    left: 0;
+    top: 2.5rem;
+  }
 `;
 
 class PageTitle extends Component {

@@ -3,13 +3,15 @@
 .App {
   height: 100vh;
   background: linear-gradient(180deg, #CCD5DA 20%, #f5f5f5 20%);
+  padding: 1rem 4rem;
+
   &-header {
     &-logo {
       max-width: 80px;
     }
   }
   &-content {
-    padding: 1rem 4rem;
+    background-color: white;
     h3 {
       color: $primary-color;
     }

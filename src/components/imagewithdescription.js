@@ -9,8 +9,8 @@ const ImageWrapper = styled.div`
 `;
 
 const ImageThumbnail = styled.img`
-  width: 5rem;
-  height: 5rem;
+  width: 16rem;
+  height: 16rem;
 `;
 
 const ImageDescription = styled.p`
