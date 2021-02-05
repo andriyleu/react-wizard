@@ -20,6 +20,8 @@ const PaddedSection = styled.section`
   box-shadow: 0px -0.2rem 2rem rgb(51 51 51 / 20%);
 `;
 
+const steps = [<Step1></Step1>, <Step2></Step2>, <Step3></Step3>];
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,22 +31,29 @@ class App extends Component {
   }
 
   getCurrentStepComponent() {
-    switch (this.state.currentStep) {
-      case 1:
-        return <Step1></Step1>;
-      case 2:
-        return <Step2></Step2>;
-      case 3:
-        return <Step3></Step3>;
-    }
+    return steps[this.state.currentStep - 1];
   }
 
   handleNextClick() {
+    if (!this.isValidStep(true)) {
+      return;
+    }
+
     this.setState({ currentStep: this.state.currentStep + 1 });
   }
 
   handlePreviousClick() {
+    if (!this.isValidStep(false)) {
+      return;
+    }
+
     this.setState({ currentStep: this.state.currentStep - 1 });
+  }
+
+  isValidStep(nextClicked) {
+    return nextClicked
+      ? this.state.currentStep + 1 < steps.length + 1
+      : this.state.currentStep - 1 > 0;
   }
 
   render() {
@@ -53,7 +62,7 @@ class App extends Component {
         <main className="App-content">
           <Header
             currentStep={this.state.currentStep}
-            numberOfSteps={3}
+            numberOfSteps={steps.length}
           ></Header>
           <PaddedSection>{this.getCurrentStepComponent()}</PaddedSection>
           <Footer>
