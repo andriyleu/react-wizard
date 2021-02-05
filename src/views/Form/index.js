@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import PageTitle from "../../components/page-title";
-import { BaseInput } from "../../components/styled/inputs";
 import TextInput from "../../components/text-input";
 
 import PasswordInput from "../../components/password-input";
@@ -23,6 +22,11 @@ const InputLabel = styled.div`
     width: 100%;
     padding-right: 0 !important;
   }
+`;
+
+const ErrorLabel = styled.label`
+  color: red;
+  margin-top: 0.5rem;
 `;
 
 const Section = styled.section`
@@ -48,6 +52,7 @@ class Step2 extends Component {
                 placeholder="Introduce tu contraseña"
                 type="password"
               ></PasswordInput>
+              <ErrorLabel>La contraseña no cumple los requisitos.</ErrorLabel>
             </InputLabel>
             <InputLabel>
               Repite tu Contraseña Maestra
@@ -56,6 +61,7 @@ class Step2 extends Component {
                 placeholder="Repite tu contraseña"
                 type="password"
               ></PasswordInput>
+              <ErrorLabel>La contraseña no coincide.</ErrorLabel>
             </InputLabel>
           </Form>
           <p>
