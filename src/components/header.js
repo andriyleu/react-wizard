@@ -77,20 +77,19 @@ const CircleNavElement = styled.li`
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentStep: 0 };
   }
 
   render() {
     const circleElements = Array.from(
       { length: this.props.numberOfSteps },
-      (_, i) => i + 1
+      (_, i) => i
     ).map((i) => {
       return (
         <CircleNavElement
           isActive={this.props.currentStep === i}
           isPending={i > this.props.currentStep}
         >
-          {this.props.currentStep > i ? <Check2 size={24}></Check2> : i}
+          {this.props.currentStep > i ? <Check2 size={24}></Check2> : i + 1}
         </CircleNavElement>
       );
     });

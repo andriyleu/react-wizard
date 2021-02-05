@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import OpenbankLogo from "./assets/img/key_openbank.png";
 import Step1 from "./views/ProductInformation";
 import Step2 from "./views/Form";
 import Step3 from "./views/Feedback";
@@ -25,13 +24,13 @@ const steps = [<Step1></Step1>, <Step2></Step2>, <Step3></Step3>];
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentStep: 1 };
+    this.state = { currentStep: 0 };
     this.handlePreviousClick = this.handlePreviousClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
   }
 
   getCurrentStepComponent() {
-    return steps[this.state.currentStep - 1];
+    return steps[this.state.currentStep];
   }
 
   handleNextClick() {
@@ -52,8 +51,8 @@ class App extends Component {
 
   isValidStep(nextClicked) {
     return nextClicked
-      ? this.state.currentStep + 1 < steps.length + 1
-      : this.state.currentStep - 1 > 0;
+      ? this.state.currentStep < steps.length - 1
+      : this.state.currentStep > 0;
   }
 
   render() {
