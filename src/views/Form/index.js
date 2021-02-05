@@ -8,11 +8,21 @@ import PasswordInput from "../../components/password-input";
 
 const Form = styled.form`
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
 `;
 
 const InputLabel = styled.div`
   font-weight: bold;
+  padding-bottom: 1rem;
+
+  &:first-child {
+    padding-right: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-right: 0 !important;
+  }
 `;
 
 const Section = styled.section`
@@ -31,26 +41,22 @@ class Step2 extends Component {
             que recuérdala bien.
           </p>
           <Form>
-            <div>
-              <InputLabel>
-                Crea tu Contraseña Maestra
-                <PasswordInput
-                  type="text"
-                  placeholder="Introduce tu contraseña"
-                  type="password"
-                ></PasswordInput>
-              </InputLabel>
-            </div>
-            <div>
-              <InputLabel>
-                Crear tu Contraseña Maestra
-                <PasswordInput
-                  type="text"
-                  placeholder="Repite tu contraseña"
-                  type="password"
-                ></PasswordInput>
-              </InputLabel>
-            </div>
+            <InputLabel>
+              Crea tu Contraseña Maestra
+              <PasswordInput
+                type="text"
+                placeholder="Introduce tu contraseña"
+                type="password"
+              ></PasswordInput>
+            </InputLabel>
+            <InputLabel>
+              Repite tu Contraseña Maestra
+              <PasswordInput
+                type="text"
+                placeholder="Repite tu contraseña"
+                type="password"
+              ></PasswordInput>
+            </InputLabel>
           </Form>
           <p>
             También puedes crear una pista que te ayude a recordar tu contraseña
