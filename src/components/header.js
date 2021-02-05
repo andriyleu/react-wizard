@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Tick } from "@styled-icons/typicons/Tick";
+import { Check2 } from "@styled-icons/bootstrap/Check2";
 
 const AppHeader = styled.header`
   background-color: #b7c4c9;
@@ -90,7 +90,7 @@ class Header extends Component {
           isActive={this.props.currentStep === i}
           isPending={i > this.props.currentStep}
         >
-          {this.props.currentStep > i ? <Tick></Tick> : i}
+          {this.props.currentStep > i ? <Check2 size={24}></Check2> : i}
         </CircleNavElement>
       );
     });
