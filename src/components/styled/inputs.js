@@ -11,6 +11,7 @@ export const BaseInput = styled.input`
   width: 100%;
   box-sizing: border-box;
   margin-top: 1rem;
+  padding-right: 3rem;
 `;
 
 export const LabelInput = styled.label`

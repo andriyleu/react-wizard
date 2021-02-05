@@ -20,7 +20,10 @@ const PaddedSection = styled.section`
   box-shadow: 0px -0.2rem 2rem rgb(51 51 51 / 20%);
 `;
 
+
 class App extends Component {
+  
+
   render() {
     return (
       <div className="App">

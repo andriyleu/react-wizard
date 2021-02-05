@@ -4,16 +4,11 @@ import PageTitle from "../../components/page-title";
 import { BaseInput } from "../../components/styled/inputs";
 import TextInput from "../../components/text-input";
 
+import PasswordInput from "../../components/password-input";
+
 const Form = styled.form`
   display: flex;
   justify-content: space-around;
-`;
-
-const PasswordInput = styled.input`
-  display: block;
-  padding: 1rem 1rem;
-  font-size: 1rem;
-  margin-top: 0.5rem;
 `;
 
 const InputLabel = styled.div`
@@ -43,7 +38,7 @@ class Step2 extends Component {
                   type="text"
                   placeholder="Introduce tu contraseña"
                   type="password"
-                />
+                ></PasswordInput>
               </InputLabel>
             </div>
             <div>
@@ -53,7 +48,7 @@ class Step2 extends Component {
                   type="text"
                   placeholder="Repite tu contraseña"
                   type="password"
-                />
+                ></PasswordInput>
               </InputLabel>
             </div>
           </Form>
