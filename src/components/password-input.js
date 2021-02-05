@@ -18,6 +18,17 @@ const PasswordAlert = styled.div`
   left: 0.1rem;
   border-bottom-left-radius: 2rem;
   background-color: red;
+
+  ${({ isEmpty, isValid }) => {
+    switch (true) {
+      case isValid:
+        return `background-color : green`;
+      case isEmpty:
+        return `background-color : red`;
+      default:
+        return `background-color : orange`;
+    }
+  }}
 `;
 
 const PasswordEyeIcon = styled.div`
@@ -79,7 +90,6 @@ class PasswordInput extends Component {
   }
 
   updateErrors() {
-    console.log(this.props.pattern);
     this.setState({
       isValidPassword: new RegExp(this.props.pattern).test(
         this.state.currentInput
@@ -93,7 +103,10 @@ class PasswordInput extends Component {
         <InputLabel>
           {this.props.title}
           <PasswordInputWrapper>
-            <PasswordAlert></PasswordAlert>
+            <PasswordAlert
+              isEmpty={this.state.currentInput.length === 0}
+              isValid={this.state.isValidPassword}
+            ></PasswordAlert>
             <PasswordEyeIcon onClick={this.togglePasswordVisibility.bind(this)}>
               {this.state.showPassword ? (
                 <EyeSlash size={24}></EyeSlash>
