@@ -34,6 +34,46 @@ const Section = styled.section`
 `;
 
 class Step2 extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      canNavigate: false,
+      firstPasswordInput: {
+        currentValue: "",
+        isValid: false,
+      },
+      secondPasswordInput: {
+        currentValue: "",
+        isValid: false,
+      },
+    };
+    this.secondPasswordRef = React.createRef();
+
+    this.setFirstPasswordInput = this.setFirstPasswordInput.bind(this);
+    this.setSecondPasswordInput = this.setSecondPasswordInput.bind(this);
+  }
+
+  setFirstPasswordInput(password, isValidPassword) {
+    this.setState(
+      {
+        firstPasswordInput: {
+          currentValue: password,
+          isValid: isValidPassword,
+        },
+      },
+      () => {
+        this.secondPasswordRef.current.updateErrors();
+      }
+    );
+  }
+
+  setSecondPasswordInput(password, isValidPassword) {
+    this.setState({
+      secondPasswordInput: { currentValue: password, isValid: isValidPassword },
+    });
+  }
+
   render() {
     return (
       <>
@@ -45,24 +85,21 @@ class Step2 extends Component {
             que recuérdala bien.
           </p>
           <Form>
-            <InputLabel>
-              Crea tu Contraseña Maestra
-              <PasswordInput
-                type="text"
-                placeholder="Introduce tu contraseña"
-                type="password"
-              ></PasswordInput>
-              <ErrorLabel>La contraseña no cumple los requisitos.</ErrorLabel>
-            </InputLabel>
-            <InputLabel>
-              Repite tu Contraseña Maestra
-              <PasswordInput
-                type="text"
-                placeholder="Repite tu contraseña"
-                type="password"
-              ></PasswordInput>
-              <ErrorLabel>La contraseña no coincide.</ErrorLabel>
-            </InputLabel>
+            <PasswordInput
+              placeholder="Introduce tu contraseña"
+              onChange={this.setFirstPasswordInput}
+              pattern="(?=.*\d)(?=.*[A-Z]).*"
+              title="Crea tu Contraseña Maestra"
+              error="La contraseña es invalida."
+            ></PasswordInput>
+            <PasswordInput
+              ref={this.secondPasswordRef}
+              placeholder="Repite tu contraseña"
+              onChange={this.setSecondPasswordInput}
+              pattern={this.state.firstPasswordInput.currentValue}
+              title="Repite tu Contraseña Maestra"
+              error="La contraseña no coincide."
+            ></PasswordInput>
           </Form>
           <p>
             También puedes crear una pista que te ayude a recordar tu contraseña
