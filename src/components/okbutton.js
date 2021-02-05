@@ -20,7 +20,7 @@ class OkButton extends Component {
   render() {
     return (
       <>
-        <FilledButton>
+        <FilledButton onClick={this.props.handleClick}>
           {this.props.title}
           <KeyboardArrowRight size={32}></KeyboardArrowRight>
         </FilledButton>

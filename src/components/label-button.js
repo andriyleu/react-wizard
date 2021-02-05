@@ -21,7 +21,9 @@ class LabelButton extends Component {
   render() {
     return (
       <>
-        <TextButton>{this.props.title}</TextButton>
+        <TextButton onClick={this.props.handleClick}>
+          {this.props.title}
+        </TextButton>
       </>
     );
   }
