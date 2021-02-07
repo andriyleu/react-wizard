@@ -91,7 +91,7 @@ class PasswordInput extends Component {
 
   updateErrors() {
     this.setState({
-      isValidPassword: new RegExp(this.props.pattern).test(
+      isValidPassword: new RegExp(`^${this.props.pattern}$`).test(
         this.state.currentInput
       ),
     });
