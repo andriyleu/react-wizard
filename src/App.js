@@ -19,18 +19,23 @@ const PaddedSection = styled.section`
   box-shadow: 0px -0.2rem 2rem rgb(51 51 51 / 20%);
 `;
 
-const steps = [<Step1></Step1>, <Step2></Step2>, <Step3></Step3>];
-
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentStep: 0 };
+    this.state = { currentStep: 1, isNavigationDisabled: true };
     this.handlePreviousClick = this.handlePreviousClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
+    this.setNavigationDisabled = this.setNavigationDisabled.bind(this);
+
+    this.steps = [
+      <Step1 setNavigationDisabled={this.setNavigationDisabled}></Step1>,
+      <Step2 setNavigationDisabled={this.setNavigationDisabled}></Step2>,
+      <Step3></Step3>,
+    ];
   }
 
   getCurrentStepComponent() {
-    return steps[this.state.currentStep];
+    return this.steps[this.state.currentStep];
   }
 
   handleNextClick() {
@@ -51,8 +56,12 @@ class App extends Component {
 
   isValidStep(nextClicked) {
     return nextClicked
-      ? this.state.currentStep < steps.length - 1
+      ? this.state.currentStep < this.steps.length - 1
       : this.state.currentStep > 0;
+  }
+
+  setNavigationDisabled(canNavigate) {
+    this.setState({ isNavigationDisabled: canNavigate });
   }
 
   render() {
@@ -61,7 +70,7 @@ class App extends Component {
         <main className="App-content">
           <Header
             currentStep={this.state.currentStep}
-            numberOfSteps={steps.length}
+            numberOfSteps={this.steps.length}
           ></Header>
           <PaddedSection>{this.getCurrentStepComponent()}</PaddedSection>
           <Footer>
@@ -71,6 +80,7 @@ class App extends Component {
             ></LabelButton>
             <OkButton
               handleClick={this.handleNextClick}
+              disabled={this.state.isNavigationDisabled}
               title="Siguiente"
             ></OkButton>
           </Footer>

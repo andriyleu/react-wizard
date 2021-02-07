@@ -54,6 +54,10 @@ class Step2 extends Component {
     this.setSecondPasswordInput = this.setSecondPasswordInput.bind(this);
   }
 
+  componentDidMount() {
+    this.props.setNavigationDisabled(true);
+  }
+
   setFirstPasswordInput(password, isValidPassword) {
     this.setState(
       {
@@ -66,12 +70,22 @@ class Step2 extends Component {
         this.secondPasswordRef.current.updateErrors();
       }
     );
+    this.props.setNavigationDisabled(
+      !(
+        this.state.firstPasswordInput.isValid &&
+        this.state.secondPasswordInput.isValid
+      )
+    );
   }
 
   setSecondPasswordInput(password, isValidPassword) {
     this.setState({
       secondPasswordInput: { currentValue: password, isValid: isValidPassword },
     });
+    this.props.setNavigationDisabled(
+      this.state.firstPasswordInput.isValid &&
+        this.state.secondPasswordInput.isValid
+    );
   }
 
   render() {
