@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 
 import { BaseInput } from "./styled/inputs";
-
 import { Eye } from "@styled-icons/bootstrap/Eye";
 import { EyeSlash } from "@styled-icons/bootstrap/EyeSlash";
+import styled from "styled-components";
 
 const PasswordInputWrapper = styled.div`
   position: relative;
@@ -53,11 +52,6 @@ const InputLabel = styled.div`
 
 const ErrorLabel = styled.label`
   color: red;
-  margin-top: 0.5rem;
-
-  input:placeholder-shown {
-    border-color: red;
-  }
 `;
 
 class PasswordInput extends Component {
@@ -135,9 +129,11 @@ class PasswordInput extends Component {
               onInvalid={this.handleInvalid}
             ></BaseInput>
           </PasswordInputWrapper>
-          {!this.state.isValidPassword && this.state.hasBlured && (
-            <ErrorLabel>{this.props.error}</ErrorLabel>
-          )}
+          <ErrorLabel>
+            {!this.state.isValidPassword &&
+              this.state.hasBlured &&
+              this.props.error}
+          </ErrorLabel>
         </InputLabel>
       </>
     );

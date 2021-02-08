@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+
 import { KeyboardArrowRight } from "@styled-icons/material-rounded/KeyboardArrowRight";
+import styled from "styled-components";
 
 // to be refactored, buttons should be the same, size height etc should not be replicated in both
 const FilledButton = styled.button`

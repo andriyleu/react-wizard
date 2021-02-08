@@ -1,18 +1,16 @@
+import "./App.scss";
+
 import React, { Component } from "react";
 
+import EndButton from "./components/endbutton";
+import Footer from "./components/footer";
+import Header from "./components/header";
+import LabelButton from "./components/label-button";
+import OkButton from "./components/okbutton";
 import Step1 from "./views/ProductInformation";
 import Step2 from "./views/Form";
 import Step3 from "./views/Feedback";
-import Footer from "./components/footer";
-import OkButton from "./components/okbutton";
-import EndButton from "./components/endbutton";
-
-import Header from "./components/header";
-import LabelButton from "./components/label-button";
 import styled from "styled-components";
-
-import "./App.scss";
-
 import { withTranslation } from "react-i18next";
 
 const PaddedSection = styled.section`

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 
 import { BaseInput } from "./styled/inputs";
+import styled from "styled-components";
 
 const ChractersLeftLabel = styled.div`
   width: 100%;

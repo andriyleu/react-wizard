@@ -1,11 +1,13 @@
+import "./index.css";
+
+import * as serviceWorker from "./serviceWorker";
+
+import App from "./App";
+import { I18nextProvider } from "react-i18next";
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import { I18nextProvider } from "react-i18next";
-import i18next from "i18next";
 import common_es from "./locale/es.json";
+import i18next from "i18next";
 
 i18next.init({
   interpolation: { escapeValue: false }, // React already does escaping

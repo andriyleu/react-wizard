@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+
+import ImageWithDescription from "../../components/image-with-description";
+import PageTitle from "../../components/page-title";
 import brain from "../../assets/img/group.svg";
 import safe from "../../assets/img/group-3.svg";
 import styled from "styled-components";
-import PageTitle from "../../components/page-title";
-import ImageWithDescription from "../../components/image-with-description";
 import { withTranslation } from "react-i18next";
 
 const ImagesSection = styled.section`

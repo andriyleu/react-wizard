@@ -4,9 +4,7 @@ import Announcement from "../../components/announcement";
 import { CheckmarkCircleOutline } from "@styled-icons/evaicons-outline/CheckmarkCircleOutline";
 import { ErrorOutline } from "@styled-icons/material/ErrorOutline";
 import styled from "styled-components";
-
 import { submitForm } from "../../services/api";
-
 import { withTranslation } from "react-i18next";
 
 const Spinner = () => (

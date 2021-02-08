@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+
 import PageTitle from "../../components/page-title";
-import TextInput from "../../components/text-input";
-
 import PasswordInput from "../../components/password-input";
-
+import TextInput from "../../components/text-input";
+import styled from "styled-components";
 import { withTranslation } from "react-i18next";
 
 const Form = styled.form`

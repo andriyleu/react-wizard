@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+
 import { Check2 } from "@styled-icons/bootstrap/Check2";
+import styled from "styled-components";
 
 const AppHeader = styled.header`
   background-color: #b7c4c9;
