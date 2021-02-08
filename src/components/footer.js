@@ -11,13 +11,13 @@ const BorderedFooter = styled.footer`
 `;
 
 class Footer extends Component {
-  render() {
+  render = () => {
     return (
       <BorderedFooter isLastSlide={this.props.isLastSlide}>
         {this.props.children}
       </BorderedFooter>
     );
-  }
+  };
 }
 
 export default Footer;

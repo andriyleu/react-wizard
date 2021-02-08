@@ -43,7 +43,6 @@ class App extends Component {
   };
 
   handleNextClick = () => {
-    console.log("click");
     if (!this.isValidStep(true)) {
       return;
     }
