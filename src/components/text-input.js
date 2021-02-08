@@ -7,7 +7,7 @@ const ChractersLeftLabel = styled.div`
   width: 100%;
   text-align: right;
   margin-top: 0.5rem;
-  box-sizing:border-box
+  box-sizing: border-box;
 `;
 
 class TextInput extends Component {
@@ -18,19 +18,19 @@ class TextInput extends Component {
     };
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ currentInput: event.target.value });
-  }
+  };
 
-  getMaxLengthLabel() {
+  getMaxLengthLabel = () => {
     return this.state.currentInput.length + "/" + this.props.maxLength;
-  }
+  };
 
-  render() {
+  render = () => {
     return (
       <>
         <BaseInput
-          onChange={this.handleChange.bind(this)}
+          onChange={this.handleChange}
           placeholder={this.props.placeholder}
           value={this.state.currentInput}
           type="text"
@@ -41,7 +41,7 @@ class TextInput extends Component {
         )}
       </>
     );
-  }
+  };
 }
 
 export default TextInput;

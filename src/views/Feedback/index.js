@@ -69,14 +69,14 @@ class Step3 extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     submitForm().then((res) => {
       const succesfullyCreated = res.status !== 200;
       this.setState({ sucessful: succesfullyCreated, hasLoaded: true });
     });
-  }
+  };
 
-  render() {
+  render = () => {
     return this.state.hasLoaded ? (
       this.state.sucessful ? (
         <Announcement
@@ -92,9 +92,11 @@ class Step3 extends Component {
         ></Announcement>
       )
     ) : (
-      <SpinnerWrapper><Spinner></Spinner></SpinnerWrapper>
+      <SpinnerWrapper>
+        <Spinner></Spinner>
+      </SpinnerWrapper>
     );
-  }
+  };
 }
 
 export default Step3;

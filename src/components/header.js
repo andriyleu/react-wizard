@@ -75,7 +75,7 @@ const CircleNavElement = styled.li`
 `;
 
 class Header extends Component {
-  render() {
+  render = () => {
     const circleElements = Array.from(
       { length: this.props.numberOfSteps },
       (_, i) => i
@@ -100,7 +100,7 @@ class Header extends Component {
         </AppHeader>
       </>
     );
-  }
+  };
 }
 
 export default Header;

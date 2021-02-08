@@ -44,16 +44,13 @@ class Step2 extends Component {
       },
     };
     this.secondPasswordRef = React.createRef();
-
-    this.setFirstPasswordInput = this.setFirstPasswordInput.bind(this);
-    this.setSecondPasswordInput = this.setSecondPasswordInput.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.props.setNavigationDisabled(true);
-  }
+  };
 
-  setFirstPasswordInput(password, isValidPassword) {
+  setFirstPasswordInput = (password, isValidPassword) => {
     this.setState(
       {
         firstPasswordInput: {
@@ -62,6 +59,7 @@ class Step2 extends Component {
         },
       },
       () => {
+        // this is needed to refresh html5 pattern validation in the 2nd input when 1st password (next  pattern) is updated
         this.secondPasswordRef.current.updateErrors();
       }
     );
@@ -71,9 +69,9 @@ class Step2 extends Component {
         this.state.secondPasswordInput.isValid
       )
     );
-  }
+  };
 
-  setSecondPasswordInput(password, isValidPassword) {
+  setSecondPasswordInput = (password, isValidPassword) => {
     this.setState({
       secondPasswordInput: { currentValue: password, isValid: isValidPassword },
     });
@@ -81,9 +79,9 @@ class Step2 extends Component {
       this.state.firstPasswordInput.isValid &&
         this.state.secondPasswordInput.isValid
     );
-  }
+  };
 
-  render() {
+  render = () => {
     return (
       <>
         <PageTitle title="Crea tu Password Manager"></PageTitle>
@@ -124,7 +122,7 @@ class Step2 extends Component {
         </Section>
       </>
     );
-  }
+  };
 }
 
 export default Step2;

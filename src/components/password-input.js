@@ -68,12 +68,9 @@ class PasswordInput extends Component {
       showPassword: false,
       isValidPassword: false,
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.togglePasswordVisibility = this.togglePasswordVisibility.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const password = event.target.value;
     const isValidPassword = event.target.checkValidity();
 
@@ -83,21 +80,21 @@ class PasswordInput extends Component {
     });
 
     this.props.onChange(password, isValidPassword);
-  }
+  };
 
-  togglePasswordVisibility(event) {
+  togglePasswordVisibility = (event) => {
     this.setState({ showPassword: !this.state.showPassword });
-  }
+  };
 
-  updateErrors() {
+  updateErrors = () => {
     this.setState({
       isValidPassword: new RegExp(`^${this.props.pattern}$`).test(
         this.state.currentInput
       ),
     });
-  }
+  };
 
-  render() {
+  render = () => {
     return (
       <>
         <InputLabel>
@@ -107,7 +104,7 @@ class PasswordInput extends Component {
               isEmpty={this.state.currentInput.length === 0}
               isValid={this.state.isValidPassword}
             ></PasswordAlert>
-            <PasswordEyeIcon onClick={this.togglePasswordVisibility.bind(this)}>
+            <PasswordEyeIcon onClick={this.togglePasswordVisibility}>
               {this.state.showPassword ? (
                 <EyeSlash size={24}></EyeSlash>
               ) : (
@@ -133,7 +130,7 @@ class PasswordInput extends Component {
         </InputLabel>
       </>
     );
-  }
+  };
 }
 
 export default PasswordInput;

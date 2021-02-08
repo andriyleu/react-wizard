@@ -17,7 +17,7 @@ const TextButton = styled.button`
 `;
 
 class LabelButton extends Component {
-  render() {
+  render = () => {
     return (
       <>
         <TextButton onClick={this.props.handleClick}>
@@ -25,7 +25,7 @@ class LabelButton extends Component {
         </TextButton>
       </>
     );
-  }
+  };
 }
 
 export default LabelButton;

@@ -20,7 +20,7 @@ const FilledButton = styled.button`
 `;
 
 class OkButton extends Component {
-  render() {
+  render = () => {
     return (
       <>
         <FilledButton
@@ -32,7 +32,7 @@ class OkButton extends Component {
         </FilledButton>
       </>
     );
-  }
+  };
 }
 
 export default OkButton;

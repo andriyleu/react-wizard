@@ -13,7 +13,7 @@ const AnnouncementContent = styled.div`
 `;
 
 class Announcement extends Component {
-  render() {
+  render = () => {
     return (
       <AnnouncementWrapper>
         {this.props.icon}
@@ -23,7 +23,7 @@ class Announcement extends Component {
         </AnnouncementContent>
       </AnnouncementWrapper>
     );
-  }
+  };
 }
 
 export default Announcement;

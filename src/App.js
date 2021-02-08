@@ -24,10 +24,7 @@ const PaddedSection = styled.section`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentStep: 2, isNavigationDisabled: true };
-    this.handlePreviousClick = this.handlePreviousClick.bind(this);
-    this.handleNextClick = this.handleNextClick.bind(this);
-    this.setNavigationDisabled = this.setNavigationDisabled.bind(this);
+    this.state = { currentStep: 0, isNavigationDisabled: true };
 
     this.steps = [
       <Step1 setNavigationDisabled={this.setNavigationDisabled}></Step1>,
@@ -36,37 +33,37 @@ class App extends Component {
     ];
   }
 
-  getCurrentStepComponent() {
+  getCurrentStepComponent = () => {
     return this.steps[this.state.currentStep];
-  }
+  };
 
-  handleNextClick() {
+  handleNextClick = () => {
     if (!this.isValidStep(true)) {
       return;
     }
 
     this.setState({ currentStep: this.state.currentStep + 1 });
-  }
+  };
 
-  handlePreviousClick() {
+  handlePreviousClick = () => {
     if (!this.isValidStep(false)) {
       return;
     }
 
     this.setState({ currentStep: this.state.currentStep - 1 });
-  }
+  };
 
-  isValidStep(nextClicked) {
+  setNavigationDisabled = (canNavigate) => {
+    this.setState({ isNavigationDisabled: canNavigate });
+  };
+
+  isValidStep = (nextClicked) => {
     return nextClicked
       ? this.state.currentStep < this.steps.length - 1
       : this.state.currentStep > 0;
-  }
+  };
 
-  setNavigationDisabled(canNavigate) {
-    this.setState({ isNavigationDisabled: canNavigate });
-  }
-
-  render() {
+  render = () => {
     return (
       <div className="App">
         <main className="App-content">
@@ -101,7 +98,7 @@ class App extends Component {
         </main>
       </div>
     );
-  }
+  };
 }
 
 export default App;

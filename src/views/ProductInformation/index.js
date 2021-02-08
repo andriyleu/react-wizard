@@ -21,20 +21,19 @@ class Step1 extends Component {
   constructor(props) {
     super(props);
     this.state = { termsAccepted: false };
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.props.setNavigationDisabled(true);
-  }
+  };
 
-  handleCheckboxChange(event) {
+  handleCheckboxChange = (event) => {
     const isNavigationDisabled = !event.target.checked;
     this.setState({ termsAccepted: isNavigationDisabled });
     this.props.setNavigationDisabled(isNavigationDisabled);
-  }
+  };
 
-  render() {
+  render = () => {
     return (
       <>
         <PageTitle title="Crea tu Password Manager"></PageTitle>
@@ -71,7 +70,7 @@ class Step1 extends Component {
         </section>
       </>
     );
-  }
+  };
 }
 
 export default Step1;

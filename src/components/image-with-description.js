@@ -18,7 +18,7 @@ const ImageDescription = styled.p`
 `;
 
 class ImageWithDescription extends Component {
-  render() {
+  render = () => {
     return (
       <>
         <ImageWrapper>
@@ -27,7 +27,7 @@ class ImageWithDescription extends Component {
         </ImageWrapper>
       </>
     );
-  }
+  };
 }
 
 export default ImageWithDescription;
