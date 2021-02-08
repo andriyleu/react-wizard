@@ -11,7 +11,7 @@ const Form = styled.form`
   flex-wrap: wrap;
 `;
 
-const InputLabel = styled.div`
+const InputLabelContainer = styled.div`
   font-weight: bold;
   padding-bottom: 1rem;
 
@@ -107,14 +107,16 @@ class Step2 extends Component {
             ></PasswordInput>
           </Form>
           <p>{t("step_2.desc_2")}</p>
-          <InputLabel>
-            {t("step_2.input_3_label")}
-            <TextInput
-              onChange={this.onOptionalQuestionChange}
-              placeholder={t("step_2.input_3_placeholder")}
-              maxLength={255}
-            ></TextInput>
-          </InputLabel>
+          <InputLabelContainer>
+            <label>
+              {t("step_2.input_3_label")}
+              <TextInput
+                onChange={this.onOptionalQuestionChange}
+                placeholder={t("step_2.input_3_placeholder")}
+                maxLength={255}
+              ></TextInput>
+            </label>
+          </InputLabelContainer>
         </Section>
       </>
     );
