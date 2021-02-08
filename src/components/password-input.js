@@ -17,7 +17,6 @@ const PasswordAlert = styled.div`
   top: 3.25rem;
   left: 0.1rem;
   border-bottom-left-radius: 2rem;
-  background-color: red;
 
   ${({ isEmpty, isValid }) => {
     switch (true) {
@@ -52,6 +51,10 @@ const InputLabelContainer = styled.div`
 
 const InputLabel = styled.label`
   font-weight: bold;
+`;
+
+const ErrorContainer = styled.div`
+  height: 1.25rem;
 `;
 
 const ErrorLabel = styled.label`
@@ -136,11 +139,13 @@ class PasswordInput extends Component {
                 value={this.state.currentInput}
               ></BaseInput>
             </PasswordInputWrapper>
-            <ErrorLabel htmlFor={this.oo}>
-              {!this.state.isValidPassword &&
-                this.state.hasBlured &&
-                this.props.error}
-            </ErrorLabel>
+            <ErrorContainer>
+              <ErrorLabel htmlFor={this.passwordInputUniqueId}>
+                {!this.state.isValidPassword &&
+                  this.state.hasBlured &&
+                  this.props.error}
+              </ErrorLabel>
+            </ErrorContainer>
           </InputLabel>
         </InputLabelContainer>
       </>
