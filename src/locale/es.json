@@ -26,6 +26,7 @@
     "input_2_placeholder": "Repite tu contraseña",
     "input_3_label": "Crea tu pista para recordar tu contraseña (opcional)",
     "input_3_placeholder": "Introduce tu pista",
+    "input_3_tooltip": "¿Cuál es nombre de tu mascota?",
     "title": "Crea tu Password Manager"
   },
   "step_3": {

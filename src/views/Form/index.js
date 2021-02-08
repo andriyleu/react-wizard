@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
+import { InfoCircle } from "@styled-icons/boxicons-regular/InfoCircle";
 import PageTitle from "../../components/page-title";
 import PasswordInput from "../../components/password-input";
+import ReactTooltip from "react-tooltip";
 import TextInput from "../../components/text-input";
 import styled from "styled-components";
 import { withTranslation } from "react-i18next";
@@ -27,6 +29,11 @@ const InputLabelContainer = styled.div`
 
 const Section = styled.section`
   margin-top: 3rem;
+`;
+
+const InfoIcon = styled.div`
+  display: inline-block;
+  margin-left: 0.5rem;
 `;
 
 class Step2 extends Component {
@@ -110,6 +117,16 @@ class Step2 extends Component {
           <InputLabelContainer>
             <label>
               {t("step_2.input_3_label")}
+              <InfoIcon>
+                <InfoCircle
+                  data-tip
+                  data-for="optionalQuestionInfo"
+                  size={16}
+                ></InfoCircle>
+                <ReactTooltip id="optionalQuestionInfo">
+                  <span>{t("step_2.input_3_tooltip")}</span>
+                </ReactTooltip>
+              </InfoIcon>
               <TextInput
                 onChange={this.onOptionalQuestionChange}
                 placeholder={t("step_2.input_3_placeholder")}

@@ -30,11 +30,11 @@ class TextInput extends Component {
     return (
       <>
         <BaseInput
+          maxLength={this.props.maxLength}
           onChange={this.handleChange}
           placeholder={this.props.placeholder}
-          value={this.state.currentInput}
           type="text"
-          maxLength={this.props.maxLength}
+          value={this.state.currentInput}
         ></BaseInput>
         {this.props.maxLength && (
           <ChractersLeftLabel>{this.getMaxLengthLabel()}</ChractersLeftLabel>
