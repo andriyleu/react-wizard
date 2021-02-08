@@ -77,6 +77,9 @@ class Step3 extends Component {
       })
       .catch((err) => {
         this.setState({ successful: false, hasLoaded: true });
+      })
+      .finally(() => {
+        this.props.setUserInfo({ isNavigationEnabled: true });
       });
   };
 

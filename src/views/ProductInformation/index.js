@@ -18,19 +18,9 @@ const SubTitle = styled.h2`
 `;
 
 class Step1 extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { termsAccepted: false };
-  }
-
-  componentDidMount = () => {
-    this.props.setNavigationDisabled(true);
-  };
-
   handleCheckboxChange = (event) => {
-    const isNavigationDisabled = !event.target.checked;
-    this.setState({ termsAccepted: isNavigationDisabled });
-    this.props.setNavigationDisabled(isNavigationDisabled);
+    const termsAccepted = event.target.checked;
+    this.props.setUserInfo({ isNavigationEnabled: termsAccepted });
   };
 
   render = () => {

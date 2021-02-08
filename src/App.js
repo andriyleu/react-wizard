@@ -24,15 +24,15 @@ const PaddedSection = styled.section`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentStep: 1, userInfo: {}, isNavigationDisabled: true };
+    this.state = { currentStep: 0, userInfo: {}, isNavigationDisabled: true };
 
     this.steps = [
-      <Step1 setNavigationDisabled={this.setNavigationDisabled}></Step1>,
-      <Step2
-        setNavigationDisabled={this.setNavigationDisabled}
+      <Step1 setUserInfo={this.setUserInfo}></Step1>,
+      <Step2 setUserInfo={this.setUserInfo}></Step2>,
+      <Step3
+        getUserInfo={this.getUserInfo}
         setUserInfo={this.setUserInfo}
-      ></Step2>,
-      <Step3 getUserInfo={this.getUserInfo}></Step3>,
+      ></Step3>,
     ];
   }
 
@@ -41,11 +41,15 @@ class App extends Component {
   };
 
   handleNextClick = () => {
+    console.log("click");
     if (!this.isValidStep(true)) {
       return;
     }
 
-    this.setState({ currentStep: this.state.currentStep + 1 });
+    this.setState({
+      currentStep: this.state.currentStep + 1,
+      isNavigationEnabled: false,
+    });
   };
 
   handlePreviousClick = () => {
@@ -56,10 +60,6 @@ class App extends Component {
     this.setState({ currentStep: this.state.currentStep - 1 });
   };
 
-  setNavigationDisabled = (canNavigate) => {
-    this.setState({ isNavigationDisabled: canNavigate });
-  };
-
   isValidStep = (nextClicked) => {
     return nextClicked
       ? this.state.currentStep < this.steps.length - 1
@@ -67,7 +67,10 @@ class App extends Component {
   };
 
   setUserInfo = (userInfo) => {
-    this.setState({ userInfo: userInfo });
+    this.setState({
+      userInfo: userInfo.user,
+      isNavigationEnabled: userInfo.isNavigationEnabled,
+    });
   };
 
   getUserInfo = () => {
@@ -94,14 +97,14 @@ class App extends Component {
                 ></LabelButton>
                 <OkButton
                   handleClick={this.handleNextClick}
-                  disabled={this.state.isNavigationDisabled}
+                  disabled={!this.state.isNavigationEnabled}
                   title="Siguiente"
                 ></OkButton>
               </>
             ) : (
               <EndButton
                 handleClick={this.handleNextClick}
-                disabled={this.state.isNavigationDisabled}
+                disabled={!this.state.isNavigationEnabled}
                 title="Siguiente"
               ></EndButton>
             )}

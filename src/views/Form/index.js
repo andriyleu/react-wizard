@@ -41,10 +41,6 @@ class Step2 extends Component {
     this.secondPasswordRef = React.createRef();
   }
 
-  componentDidMount = () => {
-    this.props.setNavigationDisabled(true);
-  };
-
   setPass = (password, isValidPassword) => {
     this.setState(
       {
@@ -54,9 +50,6 @@ class Step2 extends Component {
       () => {
         // this is needed to refresh html5 pattern validation in the 2nd input when 1st password (next  pattern) is updated
         this.secondPasswordRef.current.updateErrors();
-
-        this.props.setNavigationDisabled(!this.state.isValidForm);
-
         this.updateUserInfo();
       }
     );
@@ -69,7 +62,6 @@ class Step2 extends Component {
         isValidForm: isValidPassword,
       },
       () => {
-        this.props.setNavigationDisabled(!this.state.isValidForm);
         this.updateUserInfo();
       }
     );
@@ -77,9 +69,12 @@ class Step2 extends Component {
 
   updateUserInfo = () => {
     const userInfo = {
-      pass: this.state.pass,
-      repass: this.state.repass,
-      optionalQuestion: this.state.optionalQuestion,
+      isNavigationEnabled: this.state.isValidForm,
+      user: {
+        pass: this.state.pass,
+        repass: this.state.repass,
+        optionalQuestion: this.state.optionalQuestion,
+      },
     };
     this.props.setUserInfo(userInfo);
   };

@@ -18,16 +18,19 @@ const TextButton = styled.button`
 `;
 
 class EndButton extends Component {
-  render() {
+  render = () => {
     return (
       <>
-        <TextButton onClick={this.props.handleClick}>
+        <TextButton
+          disabled={this.props.disabled}
+          onClick={this.props.handleClick}
+        >
           {this.props.title}
           <KeyboardArrowRight size={32}></KeyboardArrowRight>
         </TextButton>
       </>
     );
-  }
+  };
 }
 
 export default EndButton;
