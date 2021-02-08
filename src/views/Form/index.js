@@ -118,7 +118,7 @@ class Step2 extends Component {
             Crea tu pista para recordar tu contraseña (opcional)
             <TextInput
               placeholder="Introduce tu pista"
-              maxLength={10}
+              maxLength={255}
             ></TextInput>
           </InputLabel>
         </Section>
