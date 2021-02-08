@@ -50,9 +50,13 @@ class Step1 extends Component {
             <SubTitle>{t("step_1.subheader_2")}</SubTitle>
             <p>{t("step_1.desc_2")}</p>
           </div>
-          <input type="checkbox" onChange={this.handleCheckboxChange}></input>
-          <p>{t("step_1.accept_terms")}</p>
         </section>
+        <input
+          id="terms"
+          type="checkbox"
+          onChange={this.handleCheckboxChange}
+        ></input>
+        <label htmlFor="terms">{t("step_1.accept_terms")}</label>
       </>
     );
   };
