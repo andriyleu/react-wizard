@@ -22,7 +22,7 @@ const PaddedSection = styled.section`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentStep: 0, isNavigationDisabled: true };
+    this.state = { currentStep: 2, isNavigationDisabled: true };
     this.handlePreviousClick = this.handlePreviousClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
     this.setNavigationDisabled = this.setNavigationDisabled.bind(this);
