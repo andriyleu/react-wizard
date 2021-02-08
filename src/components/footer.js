@@ -9,7 +9,6 @@ const BorderedFooter = styled.footer`
 
   flex-direction: ${(props) => (props.isLastSlide ? "row-reverse" : "unset")};
 `;
-//todo   flex-direction: row-reverse;
 
 class Footer extends Component {
   render() {
