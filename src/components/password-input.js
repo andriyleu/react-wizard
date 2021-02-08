@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { BaseInput } from "./styled/inputs";
 import { Eye } from "@styled-icons/bootstrap/Eye";
 import { EyeSlash } from "@styled-icons/bootstrap/EyeSlash";
+import nextId from "react-id-generator";
 import styled from "styled-components";
 
 const PasswordInputWrapper = styled.div`
@@ -36,8 +37,7 @@ const PasswordEyeIcon = styled.div`
   right: 1rem;
 `;
 
-const InputLabel = styled.div`
-  font-weight: bold;
+const InputLabelContainer = styled.div`
   padding-bottom: 1rem;
 
   &:first-child {
@@ -48,6 +48,10 @@ const InputLabel = styled.div`
     width: 100%;
     padding-right: 0 !important;
   }
+`;
+
+const InputLabel = styled.label`
+  font-weight: bold;
 `;
 
 const ErrorLabel = styled.label`
@@ -63,6 +67,7 @@ class PasswordInput extends Component {
       isValidPassword: false,
       hasBlured: false,
     };
+    this.passwordInputUniqueId = nextId();
   }
 
   componentDidUpdate = (prevProps) => {
@@ -87,7 +92,7 @@ class PasswordInput extends Component {
     this.props.onChange(password, isValidPassword);
   };
 
-  togglePasswordVisibility = (event) => {
+  togglePasswordVisibility = () => {
     this.setState({ showPassword: !this.state.showPassword });
   };
 
@@ -102,39 +107,42 @@ class PasswordInput extends Component {
   render = () => {
     return (
       <>
-        <InputLabel>
-          {this.props.title}
-          <PasswordInputWrapper>
-            <PasswordAlert
-              isEmpty={this.state.currentInput.length === 0}
-              isValid={this.state.isValidPassword}
-            ></PasswordAlert>
-            <PasswordEyeIcon onClick={this.togglePasswordVisibility}>
-              {this.state.showPassword ? (
-                <EyeSlash size={24}></EyeSlash>
-              ) : (
-                <Eye size={24}></Eye>
-              )}
-            </PasswordEyeIcon>
-            <BaseInput
-              required
-              placeholder={this.props.placeholder}
-              value={this.state.currentInput}
-              type={this.state.showPassword ? "text" : "password"}
-              maxLength={this.props.maxLength}
-              minLength={this.props.minLength}
-              pattern={this.props.pattern}
-              onBlur={this.handleOnBlur}
-              onChange={this.handleChange}
-              onInvalid={this.handleInvalid}
-            ></BaseInput>
-          </PasswordInputWrapper>
-          <ErrorLabel>
-            {!this.state.isValidPassword &&
-              this.state.hasBlured &&
-              this.props.error}
-          </ErrorLabel>
-        </InputLabel>
+        <InputLabelContainer>
+          <InputLabel>
+            {this.props.title}
+            <PasswordInputWrapper>
+              <PasswordAlert
+                isEmpty={this.state.currentInput.length === 0}
+                isValid={this.state.isValidPassword}
+              ></PasswordAlert>
+              <PasswordEyeIcon onClick={this.togglePasswordVisibility}>
+                {this.state.showPassword ? (
+                  <EyeSlash size={24}></EyeSlash>
+                ) : (
+                  <Eye size={24}></Eye>
+                )}
+              </PasswordEyeIcon>
+              <BaseInput
+                id={this.passwordInputUniqueId}
+                maxLength={this.props.maxLength}
+                minLength={this.props.minLength}
+                onBlur={this.handleOnBlur}
+                onChange={this.handleChange}
+                onInvalid={this.handleInvalid}
+                pattern={this.props.pattern}
+                placeholder={this.props.placeholder}
+                required
+                type={this.state.showPassword ? "text" : "password"}
+                value={this.state.currentInput}
+              ></BaseInput>
+            </PasswordInputWrapper>
+            <ErrorLabel htmlFor={this.oo}>
+              {!this.state.isValidPassword &&
+                this.state.hasBlured &&
+                this.props.error}
+            </ErrorLabel>
+          </InputLabel>
+        </InputLabelContainer>
       </>
     );
   };
