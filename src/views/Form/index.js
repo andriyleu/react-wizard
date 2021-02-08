@@ -38,7 +38,6 @@ class Step2 extends Component {
       repass: "",
       optionalQuestion: "",
     };
-    this.secondPasswordRef = React.createRef();
   }
 
   setPass = (password, isValidPassword) => {
@@ -48,8 +47,6 @@ class Step2 extends Component {
         isValidForm: isValidPassword && password === this.state.repass, // checks if new input is valid and compares with the other password
       },
       () => {
-        // this is needed to refresh html5 pattern validation in the 2nd input when 1st password (next  pattern) is updated
-        this.secondPasswordRef.current.updateErrors();
         this.updateUserInfo();
       }
     );
@@ -103,7 +100,6 @@ class Step2 extends Component {
               error="La contraseña es invalida."
             ></PasswordInput>
             <PasswordInput
-              ref={this.secondPasswordRef}
               placeholder="Repite tu contraseña"
               onChange={this.setRepass}
               pattern={this.state.pass}

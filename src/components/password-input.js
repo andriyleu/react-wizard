@@ -70,6 +70,12 @@ class PasswordInput extends Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.pattern !== this.props.pattern) {
+      this.updateErrors();
+    }
+  }
+
   handleChange = (event) => {
     const password = event.target.value;
     const isValidPassword = event.target.checkValidity();
