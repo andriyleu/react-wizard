@@ -5,6 +5,8 @@ import Step2 from "./views/Form";
 import Step3 from "./views/Feedback";
 import Footer from "./components/footer";
 import OkButton from "./components/okbutton";
+import EndButton from "./components/endbutton";
+
 import Header from "./components/header";
 import LabelButton from "./components/label-button";
 import styled from "styled-components";
@@ -73,16 +75,28 @@ class App extends Component {
             numberOfSteps={this.steps.length}
           ></Header>
           <PaddedSection>{this.getCurrentStepComponent()}</PaddedSection>
-          <Footer>
-            <LabelButton
-              title="Cancelar"
-              handleClick={this.handlePreviousClick}
-            ></LabelButton>
-            <OkButton
-              handleClick={this.handleNextClick}
-              disabled={this.state.isNavigationDisabled}
-              title="Siguiente"
-            ></OkButton>
+          <Footer
+            isLastSlide={this.state.currentStep === this.steps.length - 1}
+          >
+            {this.state.currentStep < this.steps.length - 1 ? (
+              <>
+                <LabelButton
+                  title="Cancelar"
+                  handleClick={this.handlePreviousClick}
+                ></LabelButton>
+                <OkButton
+                  handleClick={this.handleNextClick}
+                  disabled={this.state.isNavigationDisabled}
+                  title="Siguiente"
+                ></OkButton>
+              </>
+            ) : (
+              <EndButton
+                handleClick={this.handleNextClick}
+                disabled={this.state.isNavigationDisabled}
+                title="Siguiente"
+              ></EndButton>
+            )}
           </Footer>
         </main>
       </div>

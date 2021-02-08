@@ -6,11 +6,19 @@ const BorderedFooter = styled.footer`
   padding: 2rem 5vw;
   display: flex;
   justify-content: space-between;
+
+  flex-direction: ${(props) => (props.isLastSlide ? "row-reverse" : "unset")};
 `;
+//todo   flex-direction: row-reverse;
 
 class Footer extends Component {
   render() {
-    return <BorderedFooter>{this.props.children}</BorderedFooter>;
+    console.log(this.props.isLastSlide);
+    return (
+      <BorderedFooter isLastSlide={this.props.isLastSlide}>
+        {this.props.children}
+      </BorderedFooter>
+    );
   }
 }
 
