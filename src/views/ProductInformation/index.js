@@ -4,6 +4,7 @@ import safe from "../../assets/img/group-3.svg";
 import styled from "styled-components";
 import PageTitle from "../../components/page-title";
 import ImageWithDescription from "../../components/image-with-description";
+import { withTranslation } from "react-i18next";
 
 const ImagesSection = styled.section`
   display: flex;
@@ -24,43 +25,36 @@ class Step1 extends Component {
   };
 
   render = () => {
+    const { t } = this.props;
+
     return (
       <>
-        <PageTitle title="Crea tu Password Manager"></PageTitle>
+        <PageTitle title={t("step_1.title")}></PageTitle>
         <ImagesSection>
           <ImageWithDescription
             image={brain}
-            description="Guarda aqui todas tus contraseñas, datos o cualquier información, olvida las notas de papel y las aplicaciones no protegidas."
+            description={t("step_1.image_1_description")}
           ></ImageWithDescription>
           <ImageWithDescription
             image={safe}
-            description="Crea tu clave maestra: solo tú podrás acceder o tus secretos con ella."
+            description={t("step_1.image_2_description")}
           ></ImageWithDescription>
         </ImagesSection>
         <section>
           <div>
-            <SubTitle>Cómo funciona</SubTitle>
-            <p>
-              En primer lugar, debes crear una contraseña diferente para sus
-              pertenencias electrónicos. No podrás recuperar tu contraseña, así
-              que recuérdela bien.
-            </p>
+            <SubTitle>{t("step_1.subheader_1")}</SubTitle>
+            <p>{t("step_1.desc_1")}</p>
           </div>
           <div>
-            <SubTitle>Qué datos puedes guardar</SubTitle>
-            <p>
-              Por ejemplo, el número de tu tarjeta, el PIN y el PLIK de tu
-              teléfono móvil, el número de serie de alguno de tus dispositivos o
-              cualquier información que necesites tener en lugar seguro.
-            </p>
+            <SubTitle>{t("step_1.subheader_2")}</SubTitle>
+            <p>{t("step_1.desc_2")}</p>
           </div>
           <input type="checkbox" onChange={this.handleCheckboxChange}></input>
-          Tiene mayoría de edad y acepta que tratemos sus datos según la
-          politica de protección de datos
+          <p>{t("step_1.accept_terms")}</p>
         </section>
       </>
     );
   };
 }
 
-export default Step1;
+export default withTranslation()(Step1);

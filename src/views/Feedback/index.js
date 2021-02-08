@@ -7,6 +7,8 @@ import styled from "styled-components";
 
 import { submitForm } from "../../services/api";
 
+import { withTranslation } from "react-i18next";
+
 const Spinner = () => (
   <StyledSpinner viewBox="0 0 50 50">
     <circle
@@ -84,18 +86,20 @@ class Step3 extends Component {
   };
 
   render = () => {
+    const { t } = this.props;
+
     return this.state.hasLoaded ? (
       this.state.successful ? (
         <Announcement
           icon={<CheckmarkCircleOutline size="64"></CheckmarkCircleOutline>}
-          title="¡Tu Password Manager ya está creado!"
-          description="Tu contraseña ya está lista. Puedes acceder a tu cuenta."
+          title={t("step_3.sucess.title")}
+          description={t("step_3.sucess.desc")}
         ></Announcement>
       ) : (
         <Announcement
           icon={<ErrorOutline size="64"></ErrorOutline>}
-          title="Ha habido un error"
-          description="No hemos podido modificar tu Contraseña Maestra. Inténtalo más tarde."
+          title={t("step_3.error.title")}
+          description={t("step_3.error.desc")}
         ></Announcement>
       )
     ) : (
@@ -106,4 +110,4 @@ class Step3 extends Component {
   };
 }
 
-export default Step3;
+export default withTranslation()(Step3);

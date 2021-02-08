@@ -13,6 +13,8 @@ import styled from "styled-components";
 
 import "./App.scss";
 
+import { withTranslation } from "react-i18next";
+
 const PaddedSection = styled.section`
   padding-bottom: 4rem;
   padding-left: 8vw;
@@ -78,6 +80,8 @@ class App extends Component {
   };
 
   render = () => {
+    const { t } = this.props;
+
     return (
       <div className="App">
         <main className="App-content">
@@ -92,20 +96,20 @@ class App extends Component {
             {this.state.currentStep < this.steps.length - 1 ? (
               <>
                 <LabelButton
-                  title="Cancelar"
+                  title={t("footer.cancel_button")}
                   handleClick={this.handlePreviousClick}
                 ></LabelButton>
                 <OkButton
                   handleClick={this.handleNextClick}
                   disabled={!this.state.isNavigationEnabled}
-                  title="Siguiente"
+                  title={t("footer.continue_button")}
                 ></OkButton>
               </>
             ) : (
               <EndButton
                 handleClick={this.handleNextClick}
                 disabled={!this.state.isNavigationEnabled}
-                title="Siguiente"
+                title={t("footer.login_button")}
               ></EndButton>
             )}
           </Footer>
@@ -115,4 +119,4 @@ class App extends Component {
   };
 }
 
-export default App;
+export default withTranslation()(App);

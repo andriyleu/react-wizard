@@ -5,6 +5,8 @@ import TextInput from "../../components/text-input";
 
 import PasswordInput from "../../components/password-input";
 
+import { withTranslation } from "react-i18next";
+
 const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
@@ -82,40 +84,35 @@ class Step2 extends Component {
   };
 
   render = () => {
+    const { t } = this.props;
+
     return (
       <>
-        <PageTitle title="Crea tu Password Manager"></PageTitle>
+        <PageTitle title={t("step_2.title")}></PageTitle>
         <Section>
-          <p>
-            En primer lugar, debes crear una contraseña diferente para sus
-            pertenencias electrónicas. No podrás recuperar tu contraseña, así
-            que recuérdala bien.
-          </p>
+          <p>{t("step_2.desc_1")}</p>
           <Form>
             <PasswordInput
-              placeholder="Introduce tu contraseña"
+              placeholder={t("step_2.input_1_placeholder")}
               onChange={this.setPass}
               pattern="(?=.*\d)(?=.*[A-Z]).*"
-              title="Crea tu Contraseña Maestra"
-              error="La contraseña es invalida."
+              title={t("step_2.input_1_label")}
+              error={t("step_2.input_1_invalid")}
             ></PasswordInput>
             <PasswordInput
-              placeholder="Repite tu contraseña"
+              placeholder={t("step_2.input_2_placeholder")}
               onChange={this.setRepass}
               pattern={this.state.pass}
-              title="Repite tu Contraseña Maestra"
-              error="La contraseña no coincide."
+              title={t("step_2.input_2_label")}
+              error={t("step_2.input_2_invalid")}
             ></PasswordInput>
           </Form>
-          <p>
-            También puedes crear una pista que te ayude a recordar tu contraseña
-            maestra.
-          </p>
+          <p>{t("step_2.desc_2")}</p>
           <InputLabel>
-            Crea tu pista para recordar tu contraseña (opcional)
+            {t("step_2.input_3_label")}
             <TextInput
               onChange={this.onOptionalQuestionChange}
-              placeholder="Introduce tu pista"
+              placeholder={t("step_2.input_3_placeholder")}
               maxLength={255}
             ></TextInput>
           </InputLabel>
@@ -125,4 +122,4 @@ class Step2 extends Component {
   };
 }
 
-export default Step2;
+export default withTranslation()(Step2);

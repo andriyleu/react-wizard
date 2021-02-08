@@ -7,7 +7,7 @@
     "subheader_2": "Qué datos puedes guardar",
     "desc_1": "En primer lugar, debes crear una contraseña diferente para sus pertenencias electrónicos. No podrás recuperar tu contraseña, así que recuérdela bien.",
     "desc_2": "Por ejemplo, el número de tu tarjeta, el PIN y el PLIK de tu teléfono móvil, el número de serie de alguno de tus dispositivos o cualquier información que necesites tener en lugar seguro.",
-    "accep_terms": "Tiene mayoría de edad y acepta que tratemos sus datos según la politica de protección de datos"
+    "accept_terms": "Tiene mayoría de edad y acepta que tratemos sus datos según la politica de protección de datos"
   },
   "step_2": {
     "title": "Crea tu Password Manager",
@@ -15,8 +15,10 @@
     "desc_2": "También puedes crear una pista que te ayude a recordar tu contraseña maestra.",
     "input_1_label": "Crea tu Contraseña Maestra",
     "input_1_placeholder": "Introduce tu contraseña",
+    "input_1_invalid": "La contraseña no es valida",
     "input_2_label": "Repite tu Contraseña Maestra",
     "input_2_placeholder": "Repite tu contraseña",
+    "input_2_invalid": "La contraseña no coincide",
     "input_3_label": "Crea tu pista para recordar tu contraseña (opcional)",
     "input_3_placeholder": "Introduce tu pista"
   },
