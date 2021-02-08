@@ -13,10 +13,6 @@ const AnnouncementContent = styled.div`
 `;
 
 class Announcement extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <AnnouncementWrapper>

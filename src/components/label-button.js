@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
-import { KeyboardArrowRight } from "@styled-icons/material-rounded/KeyboardArrowRight";
+import styled from "styled-components";
 
 const TextButton = styled.button`
   color: black;

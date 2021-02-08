@@ -24,11 +24,6 @@ const InputLabel = styled.div`
   }
 `;
 
-const ErrorLabel = styled.label`
-  color: red;
-  margin-top: 0.5rem;
-`;
-
 const Section = styled.section`
   margin-top: 3rem;
 `;
