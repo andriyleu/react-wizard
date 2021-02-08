@@ -59,6 +59,14 @@ class App extends Component {
     this.setState({ currentStep: this.state.currentStep - 1 });
   };
 
+  handleLastStepClick = () => {
+    if (this.state.success) {
+      return; // redirect to "login" or wherever
+    }
+
+    this.setState({ currentStep: 0, isNavigationEnabled: false });
+  };
+
   isValidStep = (nextClicked) => {
     return nextClicked
       ? this.state.currentStep < this.steps.length - 1
@@ -69,6 +77,7 @@ class App extends Component {
     this.setState({
       userInfo: userInfo.user,
       isNavigationEnabled: userInfo.isNavigationEnabled,
+      success: userInfo.success,
     });
   };
 
@@ -103,11 +112,17 @@ class App extends Component {
                 ></OkButton>
               </>
             ) : (
-              <EndButton
-                handleClick={this.handleNextClick}
-                disabled={!this.state.isNavigationEnabled}
-                title={t("footer.login_button")}
-              ></EndButton>
+              this.state.success !== undefined && (
+                <EndButton
+                  handleClick={this.handleLastStepClick}
+                  disabled={!this.state.isNavigationEnabled}
+                  title={
+                    this.state.success
+                      ? t("footer.login_button")
+                      : t("footer.restart_button")
+                  }
+                ></EndButton>
+              )
             )}
           </Footer>
         </main>

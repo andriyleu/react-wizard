@@ -79,7 +79,10 @@ class Step3 extends Component {
         this.setState({ successful: false, hasLoaded: true });
       })
       .finally(() => {
-        this.props.setUserInfo({ isNavigationEnabled: true });
+        this.props.setUserInfo({
+          isNavigationEnabled: true,
+          success: this.state.successful,
+        });
       });
   };
 

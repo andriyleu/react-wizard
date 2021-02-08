@@ -3,7 +3,7 @@
     "cancel_button": "Cancelar",
     "continue_button": "Continuar",
     "login_button": "Acceder",
-    "restart": "Volver a Password Manager"
+    "restart_button": "Volver a Password Manager"
   },
   "step_1": {
     "accept_terms": "Tiene mayoría de edad y acepta que tratemos sus datos según la politica de protección de datos",
