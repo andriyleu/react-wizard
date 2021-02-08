@@ -33,15 +33,10 @@ class Step2 extends Component {
     super(props);
 
     this.state = {
-      canNavigate: false,
-      firstPasswordInput: {
-        currentValue: "",
-        isValid: false,
-      },
-      secondPasswordInput: {
-        currentValue: "",
-        isValid: false,
-      },
+      isValidForm: false,
+      pass: "",
+      repass: "",
+      optionalQuestion: "",
     };
     this.secondPasswordRef = React.createRef();
   }
@@ -50,35 +45,48 @@ class Step2 extends Component {
     this.props.setNavigationDisabled(true);
   };
 
-  setFirstPasswordInput = (password, isValidPassword) => {
+  setPass = (password, isValidPassword) => {
     this.setState(
       {
-        firstPasswordInput: {
-          currentValue: password,
-          isValid: isValidPassword,
-        },
+        pass: password,
+        isValidForm: isValidPassword && password === this.state.repass, // checks if new input is valid and compares with the other password
       },
       () => {
         // this is needed to refresh html5 pattern validation in the 2nd input when 1st password (next  pattern) is updated
         this.secondPasswordRef.current.updateErrors();
+
+        this.props.setNavigationDisabled(!this.state.isValidForm);
+
+        this.updateUserInfo();
       }
-    );
-    this.props.setNavigationDisabled(
-      !(
-        this.state.firstPasswordInput.isValid &&
-        this.state.secondPasswordInput.isValid
-      )
     );
   };
 
-  setSecondPasswordInput = (password, isValidPassword) => {
-    this.setState({
-      secondPasswordInput: { currentValue: password, isValid: isValidPassword },
-    });
-    this.props.setNavigationDisabled(
-      this.state.firstPasswordInput.isValid &&
-        this.state.secondPasswordInput.isValid
+  setRepass = (password, isValidPassword) => {
+    this.setState(
+      {
+        repass: password,
+        isValidForm: isValidPassword,
+      },
+      () => {
+        this.props.setNavigationDisabled(!this.state.isValidForm);
+        this.updateUserInfo();
+      }
     );
+  };
+
+  updateUserInfo = () => {
+    const userInfo = {
+      pass: this.state.pass,
+      repass: this.state.repass,
+      optionalQuestion: this.state.optionalQuestion,
+    };
+    this.props.setUserInfo(userInfo);
+  };
+
+  onOptionalQuestionChange = (event) => {
+    const optionalQuestion = event.target.value;
+    this.setState({ optionalQuestion: optionalQuestion });
   };
 
   render = () => {
@@ -94,7 +102,7 @@ class Step2 extends Component {
           <Form>
             <PasswordInput
               placeholder="Introduce tu contraseña"
-              onChange={this.setFirstPasswordInput}
+              onChange={this.setPass}
               pattern="(?=.*\d)(?=.*[A-Z]).*"
               title="Crea tu Contraseña Maestra"
               error="La contraseña es invalida."
@@ -102,8 +110,8 @@ class Step2 extends Component {
             <PasswordInput
               ref={this.secondPasswordRef}
               placeholder="Repite tu contraseña"
-              onChange={this.setSecondPasswordInput}
-              pattern={this.state.firstPasswordInput.currentValue}
+              onChange={this.setRepass}
+              pattern={this.state.pass}
               title="Repite tu Contraseña Maestra"
               error="La contraseña no coincide."
             ></PasswordInput>
@@ -115,6 +123,7 @@ class Step2 extends Component {
           <InputLabel>
             Crea tu pista para recordar tu contraseña (opcional)
             <TextInput
+              onChange={this.onOptionalQuestionChange}
               placeholder="Introduce tu pista"
               maxLength={255}
             ></TextInput>

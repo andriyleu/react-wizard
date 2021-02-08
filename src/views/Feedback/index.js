@@ -65,20 +65,24 @@ class Step3 extends Component {
     super(props);
     this.state = {
       hasLoaded: false,
-      response: {},
+      successful: false,
     };
   }
 
   componentDidMount = () => {
-    submitForm().then((res) => {
-      const succesfullyCreated = res.status !== 200;
-      this.setState({ sucessful: succesfullyCreated, hasLoaded: true });
-    });
+    const { pass, repass, optionalQuestion } = this.props.getUserInfo();
+    submitForm(pass, repass, optionalQuestion)
+      .then((res) => {
+        this.setState({ successful: true, hasLoaded: true });
+      })
+      .catch((err) => {
+        this.setState({ successful: false, hasLoaded: true });
+      });
   };
 
   render = () => {
     return this.state.hasLoaded ? (
-      this.state.sucessful ? (
+      this.state.successful ? (
         <Announcement
           icon={<CheckmarkCircleOutline size="64"></CheckmarkCircleOutline>}
           title="¡Tu Password Manager ya está creado!"

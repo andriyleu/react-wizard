@@ -24,12 +24,15 @@ const PaddedSection = styled.section`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentStep: 0, isNavigationDisabled: true };
+    this.state = { currentStep: 1, userInfo: {}, isNavigationDisabled: true };
 
     this.steps = [
       <Step1 setNavigationDisabled={this.setNavigationDisabled}></Step1>,
-      <Step2 setNavigationDisabled={this.setNavigationDisabled}></Step2>,
-      <Step3></Step3>,
+      <Step2
+        setNavigationDisabled={this.setNavigationDisabled}
+        setUserInfo={this.setUserInfo}
+      ></Step2>,
+      <Step3 getUserInfo={this.getUserInfo}></Step3>,
     ];
   }
 
@@ -61,6 +64,14 @@ class App extends Component {
     return nextClicked
       ? this.state.currentStep < this.steps.length - 1
       : this.state.currentStep > 0;
+  };
+
+  setUserInfo = (userInfo) => {
+    this.setState({ userInfo: userInfo });
+  };
+
+  getUserInfo = () => {
+    return this.state.userInfo;
   };
 
   render = () => {
