@@ -67,14 +67,19 @@ class PasswordInput extends Component {
       currentInput: "",
       showPassword: false,
       isValidPassword: false,
+      hasBlured: false,
     };
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate = (prevProps) => {
     if (prevProps.pattern !== this.props.pattern) {
       this.updateErrors();
     }
-  }
+  };
+
+  handleOnBlur = () => {
+    this.setState({ hasBlured: true });
+  };
 
   handleChange = (event) => {
     const password = event.target.value;
@@ -119,20 +124,20 @@ class PasswordInput extends Component {
             </PasswordEyeIcon>
             <BaseInput
               required
-              onChange={this.handleChange}
               placeholder={this.props.placeholder}
               value={this.state.currentInput}
               type={this.state.showPassword ? "text" : "password"}
               maxLength={this.props.maxLength}
               minLength={this.props.minLength}
               pattern={this.props.pattern}
+              onBlur={this.handleOnBlur}
+              onChange={this.handleChange}
               onInvalid={this.handleInvalid}
             ></BaseInput>
           </PasswordInputWrapper>
-          {!this.state.isValidPassword &&
-            this.state.currentInput.length !== 0 && (
-              <ErrorLabel>{this.props.error}</ErrorLabel>
-            )}
+          {!this.state.isValidPassword && this.state.hasBlured && (
+            <ErrorLabel>{this.props.error}</ErrorLabel>
+          )}
         </InputLabel>
       </>
     );
