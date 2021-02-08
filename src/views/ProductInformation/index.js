@@ -18,6 +18,22 @@ const SubTitle = styled.h2`
 `;
 
 class Step1 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { termsAccepted: false };
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.setNavigationDisabled(true);
+  }
+
+  handleCheckboxChange(event) {
+    const isNavigationDisabled = !event.target.checked;
+    this.setState({ termsAccepted: isNavigationDisabled });
+    this.props.setNavigationDisabled(isNavigationDisabled);
+  }
+
   render() {
     return (
       <>
@@ -49,6 +65,9 @@ class Step1 extends Component {
               cualquier información que necesites tener en lugar seguro.
             </p>
           </div>
+          <input type="checkbox" onChange={this.handleCheckboxChange}></input>
+          Tiene mayoría de edad y acepta que tratemos sus datos según la
+          politica de protección de datos
         </section>
       </>
     );
