@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import InfoTooltip from "../../components/info-tooltip";
 import PageTitle from "../../components/page-title";
 import PasswordInput from "../../components/password-input";
+import PropTypes from "prop-types";
 import TextInput from "../../components/text-input";
 import styled from "styled-components";
 import { withTranslation } from "react-i18next";
@@ -128,5 +129,9 @@ class Step2 extends Component {
     );
   };
 }
+
+Step2.propTypes = {
+  setUserInfo: PropTypes.func,
+};
 
 export default withTranslation()(Step2);

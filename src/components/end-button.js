@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { KeyboardArrowRight } from "@styled-icons/material-rounded/KeyboardArrowRight";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const TextButton = styled.button`
@@ -33,5 +34,11 @@ class EndButton extends Component {
     );
   };
 }
+
+EndButton.propTypes = {
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  title: PropTypes.string,
+};
 
 export default EndButton;

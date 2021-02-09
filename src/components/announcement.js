@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+
+import PropTypes from "prop-types";
 import { Title } from "./styled/texts";
+import styled from "styled-components";
 
 const AnnouncementWrapper = styled.div`
   display: flex;
@@ -25,5 +27,11 @@ class Announcement extends Component {
     );
   };
 }
+
+Announcement.propTypes = {
+  icon: PropTypes.element,
+  title: PropTypes.string,
+  description: PropTypes.string,
+};
 
 export default Announcement;

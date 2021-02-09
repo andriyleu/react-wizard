@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import EndButton from "./end-button";
 import LabelButton from "./label-button";
 import OkButton from "./ok-button";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withTranslation } from "react-i18next";
 
@@ -59,5 +60,15 @@ class Footer extends Component {
     );
   };
 }
+
+Footer.propTypes = {
+  currentStep: PropTypes.number,
+  numberOfSteps: PropTypes.number,
+  handleNextClick: PropTypes.func,
+  handlePreviousClick: PropTypes.func,
+  handleLastStepClick: PropTypes.func,
+  isNavigationEnabled: PropTypes.bool,
+  success: PropTypes.bool,
+};
 
 export default withTranslation()(Footer);

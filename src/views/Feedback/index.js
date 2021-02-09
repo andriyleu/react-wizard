@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Announcement from "../../components/announcement";
 import { CheckmarkCircleOutline } from "@styled-icons/evaicons-outline/CheckmarkCircleOutline";
 import { ErrorOutline } from "@styled-icons/material/ErrorOutline";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { submitForm } from "../../services/api";
 import { withTranslation } from "react-i18next";
@@ -110,5 +111,10 @@ class Step3 extends Component {
     );
   };
 }
+
+Step3.propTypes = {
+  setUserInfo: PropTypes.func,
+  getUserInfo: PropTypes.func,
+};
 
 export default withTranslation()(Step3);

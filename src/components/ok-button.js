@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { KeyboardArrowRight } from "@styled-icons/material-rounded/KeyboardArrowRight";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 // to be refactored, buttons should be the same, size height etc should not be replicated in both
@@ -35,5 +36,11 @@ class OkButton extends Component {
     );
   };
 }
+
+OkButton.propTypes = {
+  disabled: PropTypes.bool,
+  handleClick: PropTypes.func,
+  title: PropTypes.string,
+};
 
 export default OkButton;

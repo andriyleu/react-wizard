@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { BaseInput } from "./styled/inputs";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const ChractersLeftLabel = styled.div`
@@ -43,5 +44,11 @@ class TextInput extends Component {
     );
   };
 }
+
+TextInput.propTypes = {
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  maxLength: PropTypes.number,
+};
 
 export default TextInput;

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { BaseInput } from "./styled/inputs";
 import { Eye } from "@styled-icons/bootstrap/Eye";
 import { EyeSlash } from "@styled-icons/bootstrap/EyeSlash";
+import PropTypes from "prop-types";
 import nextId from "react-id-generator";
 import styled from "styled-components";
 
@@ -152,5 +153,15 @@ class PasswordInput extends Component {
     );
   };
 }
+
+PasswordInput.propTypes = {
+  error: PropTypes.string,
+  maxLength: PropTypes.number,
+  minLength: PropTypes.number,
+  onChange: PropTypes.func,
+  pattern: PropTypes.string,
+  placeholder: PropTypes.string,
+  title: PropTypes.string,
+};
 
 export default PasswordInput;

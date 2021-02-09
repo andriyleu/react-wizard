@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { Check2 } from "@styled-icons/bootstrap/Check2";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const AppHeader = styled.header`
@@ -105,5 +106,10 @@ class Header extends Component {
     );
   };
 }
+
+Header.propTypes = {
+  currentStep: PropTypes.number,
+  numberOfSteps: PropTypes.number,
+};
 
 export default Header;

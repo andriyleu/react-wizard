@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import PropTypes from "prop-types";
 import { TitleWithBorder } from "./styled/texts";
 
 class PageTitle extends Component {
@@ -11,5 +12,9 @@ class PageTitle extends Component {
     );
   };
 }
+
+PageTitle.propTypes = {
+  title: PropTypes.string,
+};
 
 export default PageTitle;

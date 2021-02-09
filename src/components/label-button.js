@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const TextButton = styled.button`
@@ -28,5 +29,10 @@ class LabelButton extends Component {
     );
   };
 }
+
+LabelButton.propTypes = {
+  handleClick: PropTypes.func,
+  title: PropTypes.string,
+};
 
 export default LabelButton;

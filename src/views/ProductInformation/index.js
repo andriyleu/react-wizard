@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import ImageWithDescription from "../../components/image-with-description";
 import PageTitle from "../../components/page-title";
+import PropTypes from "prop-types";
 import brain from "../../assets/img/group.svg";
 import safe from "../../assets/img/group-3.svg";
 import styled from "styled-components";
@@ -61,5 +62,9 @@ class Step1 extends Component {
     );
   };
 }
+
+Step1.propTypes = {
+  setUserInfo: PropTypes.func,
+};
 
 export default withTranslation()(Step1);

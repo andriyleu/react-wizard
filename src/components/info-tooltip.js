@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { InfoCircle } from "@styled-icons/boxicons-regular/InfoCircle";
+import PropTypes from "prop-types";
 import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
 
@@ -27,5 +28,9 @@ class InfoTooltip extends Component {
     );
   };
 }
+
+InfoTooltip.propTypes = {
+  title: PropTypes.string,
+};
 
 export default InfoTooltip;
