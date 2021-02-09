@@ -6,6 +6,7 @@ import Header from "./components/header";
 import Step1 from "./views/ProductInformation";
 import Step2 from "./views/Form";
 import Step3 from "./views/Feedback";
+import Theme from "./theme/theme";
 import styled from "styled-components";
 
 const PaddedSection = styled.section`
@@ -84,24 +85,26 @@ class App extends Component {
     return (
       <>
         <GlobalStyle />
-        <div className="App">
-          <main className="App-content">
-            <Header
-              currentStep={this.state.currentStep}
-              numberOfSteps={this.steps.length}
-            ></Header>
-            <PaddedSection>{this.getCurrentStepComponent()}</PaddedSection>
-            <Footer
-              currentStep={this.state.currentStep}
-              numberOfSteps={this.steps.length}
-              handleNextClick={this.handleNextClick}
-              handlePreviousClick={this.handlePreviousClick}
-              handleLastStepClick={this.handleLastStepClick}
-              isNavigationEnabled={this.state.isNavigationEnabled}
-              success={this.state.success}
-            ></Footer>
-          </main>
-        </div>
+        <Theme>
+          <div className="App">
+            <main className="App-content">
+              <Header
+                currentStep={this.state.currentStep}
+                numberOfSteps={this.steps.length}
+              ></Header>
+              <PaddedSection>{this.getCurrentStepComponent()}</PaddedSection>
+              <Footer
+                currentStep={this.state.currentStep}
+                numberOfSteps={this.steps.length}
+                handleNextClick={this.handleNextClick}
+                handlePreviousClick={this.handlePreviousClick}
+                handleLastStepClick={this.handleLastStepClick}
+                isNavigationEnabled={this.state.isNavigationEnabled}
+                success={this.state.success}
+              ></Footer>
+            </main>
+          </div>
+        </Theme>
       </>
     );
   };

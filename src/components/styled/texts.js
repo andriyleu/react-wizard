@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Title = styled.h1`
-  color: #002b45;
+  color: ${(props) => `${props.theme.colors.secondaryColor}`};
   position: relative;
   margin: 0;
 `;
@@ -9,7 +9,7 @@ export const Title = styled.h1`
 export const TitleWithBorder = styled(Title)`
   &:after {
     content: "";
-    background: #40c3df;
+    background: ${(props) => `${props.theme.colors.blue}`};
     position: absolute;
     height: 5px;
     width: 3rem;

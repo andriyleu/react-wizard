@@ -5,8 +5,8 @@ import styled from "styled-components";
 
 // to be refactored, buttons should be the same, size height etc should not be replicated in both
 const FilledButton = styled.button`
-  background-color: #002b45;
-  color: #ffffff;
+  background-color: ${(props) => `${props.theme.colors.secondaryColor}`};
+  color: ${(props) => `${props.theme.colors.white}`};
   padding: 1rem 4vw;
   border-radius: 0.2rem;
   outline: 0;
@@ -16,7 +16,7 @@ const FilledButton = styled.button`
   justify-content: center;
   align-items: center;
   &:disabled {
-    background-color: #788f9c;
+    background-color: ${(props) => `${props.theme.colors.grey}`};
   }
 `;
 

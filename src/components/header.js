@@ -26,7 +26,6 @@ const NavList = styled.ul`
 const CircleNavElement = styled.li`
   width: ${(props) => (props.isActive ? "2.5rem" : "2rem")};
   height: ${(props) => (props.isActive ? "2.5rem" : "2rem")};
-  text-align: center;
   line-height: 2em;
   border-radius: 3em;
   margin: 0 1em;
@@ -44,7 +43,10 @@ const CircleNavElement = styled.li`
     left: -2em;
     width: 2em;
     height: 0.2em;
-    background: ${(props) => (props.isPending ? "#788f9c" : "#FF0049")};
+    background: ${(props) =>
+      props.isPending
+        ? props.theme.colors.grey
+        : props.theme.colors.primaryColor};
   }
 
   &:first-child:before {
@@ -54,7 +56,7 @@ const CircleNavElement = styled.li`
   &:after {
     width: 1rem;
     height: 1rem;
-    background-color: #ffffff;
+    background-color: ${(props) => `${props.theme.colors.white}`};
     content: "";
     position: absolute;
     top: 4rem;
@@ -63,14 +65,14 @@ const CircleNavElement = styled.li`
     display: ${(props) => (props.isActive ? "block" : "none")};
   }
 
-  ${({ isPending, isActive }) => {
+  ${(props) => {
     switch (true) {
-      case isActive:
-        return `background-color : #002B45`;
-      case isPending:
-        return `background-color : #788f9c`;
+      case props.isActive:
+        return `background-color :  ${props.theme.colors.secondaryColor}`;
+      case props.isPending:
+        return `background-color : ${props.theme.colors.grey}`;
       default:
-        return `background-color : #FF0049`;
+        return `background-color : ${props.theme.colors.primaryColor}`;
     }
   }}
 `;
