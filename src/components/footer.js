@@ -16,10 +16,16 @@ const BorderedFooter = styled.footer`
 `;
 
 class Footer extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      this.props.isNavigationEnabled !== nextProps.isNavigationEnabled ||
+      this.props.currentStep !== nextProps.currentStep
+    );
+  }
+
   render = () => {
     const isLastSlide = this.props.currentStep === this.props.numberOfSteps - 1;
     const hasLoadedInfo = this.props.success !== undefined;
-    console.log(isLastSlide); //tofix
     const { t } = this.props;
 
     return (
