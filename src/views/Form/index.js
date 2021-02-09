@@ -98,6 +98,8 @@ class Step2 extends Component {
               pattern="(?=.*\d)(?=.*[A-Z]).*"
               title={t("step_2.input_1_label")}
               error={t("step_2.input_1_invalid")}
+              minLength={8}
+              maxLength={24}
             ></PasswordInput>
             <PasswordInput
               placeholder={t("step_2.input_2_placeholder")}
@@ -105,6 +107,8 @@ class Step2 extends Component {
               pattern={this.state.pass}
               title={t("step_2.input_2_label")}
               error={t("step_2.input_2_invalid")}
+              minLength={8}
+              maxLength={24}
             ></PasswordInput>
           </Form>
           <p>{t("step_2.desc_2")}</p>
