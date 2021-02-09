@@ -2,16 +2,12 @@ import "./App.scss";
 
 import React, { Component } from "react";
 
-import EndButton from "./components/endbutton";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import LabelButton from "./components/label-button";
-import OkButton from "./components/okbutton";
 import Step1 from "./views/ProductInformation";
 import Step2 from "./views/Form";
 import Step3 from "./views/Feedback";
 import styled from "styled-components";
-import { withTranslation } from "react-i18next";
 
 const PaddedSection = styled.section`
   padding-bottom: 4rem;
@@ -24,7 +20,7 @@ const PaddedSection = styled.section`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentStep: 0, userInfo: {}, isNavigationDisabled: true };
+    this.state = { currentStep: 0, userInfo: {}, isNavigationEnabled: false };
 
     this.steps = [
       <Step1 setUserInfo={this.setUserInfo}></Step1>,
@@ -86,8 +82,6 @@ class App extends Component {
   };
 
   render = () => {
-    const { t } = this.props;
-
     return (
       <div className="App">
         <main className="App-content">
@@ -97,38 +91,18 @@ class App extends Component {
           ></Header>
           <PaddedSection>{this.getCurrentStepComponent()}</PaddedSection>
           <Footer
-            isLastSlide={this.state.currentStep === this.steps.length - 1}
-          >
-            {this.state.currentStep < this.steps.length - 1 ? (
-              <>
-                <LabelButton
-                  title={t("footer.cancel_button")}
-                  handleClick={this.handlePreviousClick}
-                ></LabelButton>
-                <OkButton
-                  handleClick={this.handleNextClick}
-                  disabled={!this.state.isNavigationEnabled}
-                  title={t("footer.continue_button")}
-                ></OkButton>
-              </>
-            ) : (
-              this.state.success !== undefined && (
-                <EndButton
-                  handleClick={this.handleLastStepClick}
-                  disabled={!this.state.isNavigationEnabled}
-                  title={
-                    this.state.success
-                      ? t("footer.login_button")
-                      : t("footer.restart_button")
-                  }
-                ></EndButton>
-              )
-            )}
-          </Footer>
+            currentStep={this.state.currentStep}
+            numberOfSteps={this.steps.length}
+            handleNextClick={this.handleNextClick}
+            handlePreviousClick={this.handlePreviousClick}
+            handleLastStepClick={this.handleLastStepClick}
+            isNavigationEnabled={this.state.isNavigationEnabled}
+            success={this.state.success}
+          ></Footer>
         </main>
       </div>
     );
   };
 }
 
-export default withTranslation()(App);
+export default App;

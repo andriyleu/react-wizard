@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
+import EndButton from "./endbutton";
+import LabelButton from "./label-button";
+import OkButton from "./okbutton";
 import styled from "styled-components";
+import { withTranslation } from "react-i18next";
 
 const BorderedFooter = styled.footer`
   border-top: 0.1rem solid #eaeaea;
@@ -13,12 +17,41 @@ const BorderedFooter = styled.footer`
 
 class Footer extends Component {
   render = () => {
+    const isLastSlide = this.props.currentStep === this.props.numberOfSteps - 1;
+    const hasLoadedInfo = this.props.success !== undefined;
+    console.log(isLastSlide); //tofix
+    const { t } = this.props;
+
     return (
-      <BorderedFooter isLastSlide={this.props.isLastSlide}>
-        {this.props.children}
+      <BorderedFooter isLastSlide={isLastSlide}>
+        {isLastSlide ? (
+          hasLoadedInfo && (
+            <EndButton
+              handleClick={this.props.handleLastStepClick}
+              disabled={!this.props.isNavigationEnabled}
+              title={
+                this.props.success
+                  ? t("footer.login_button")
+                  : t("footer.restart_button")
+              }
+            ></EndButton>
+          )
+        ) : (
+          <>
+            <LabelButton
+              title={t("footer.cancel_button")}
+              handleClick={this.props.handlePreviousClick}
+            ></LabelButton>
+            <OkButton
+              handleClick={this.props.handleNextClick}
+              disabled={!this.props.isNavigationEnabled}
+              title={t("footer.continue_button")}
+            ></OkButton>
+          </>
+        )}
       </BorderedFooter>
     );
   };
 }
 
-export default Footer;
+export default withTranslation()(Footer);
