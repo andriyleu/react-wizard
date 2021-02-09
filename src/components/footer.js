@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import EndButton from "./endbutton";
+import EndButton from "./end-button";
 import LabelButton from "./label-button";
-import OkButton from "./okbutton";
+import OkButton from "./ok-button";
 import styled from "styled-components";
 import { withTranslation } from "react-i18next";
 
